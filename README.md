@@ -239,4 +239,3 @@ Route::middleware('auth')->group(function () {
 
 ## ER図
 ![ER Diagram](./er_contact_system.png)
-```

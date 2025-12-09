@@ -9,12 +9,16 @@ Laravel を用いて実装したお問い合わせフォームアプリケーシ
 
 認証機能は Laravel Fortify をベースに、FormRequest を用いたバリデーションとカスタムエラーメッセージで要件を満たすように実装しています。
 
+---
+
 ## 環境構築
 
-# リポジトリをクローン
+### リポジトリをクローン
 
+```bash
 git clone git@github.com:TAKAMASA-otk/contactform-test1.git
 cd contactform-test1
+
 
 # 環境変数ファイルを作成
 
@@ -30,6 +34,13 @@ npm install # 必要な場合
 php artisan key:generate
 
 # .env の DB 設定を編集（MySQL など）
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=contactform_test1
+DB_USERNAME=root
+DB_PASSWORD=secret
 
 # マイグレーション・シーディング
 
@@ -213,13 +224,17 @@ php artisan serve
 
 ## ルーティング一覧（主要なもの）
 
-```php
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+
 // お問い合わせフォーム（PG01〜PG03）
 Route::get('/', [ContactController::class, 'showInput'])->name('contact.input');
 Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/thanks', [ContactController::class, 'send'])->name('contact.send');
 
-// 認証（register / login / logout）
+// 認証（PG08〜PG10）
 Route::get('/register', [RegisterController::class, 'show'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
@@ -228,7 +243,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// 管理画面（ログイン必須）
+// 管理画面（PG04〜PG07）※ログイン必須
 Route::middleware('auth')->group(function () {
     Route::get('/admin',  [AdminController::class, 'index'])->name('admin.index');
     Route::get('/search', [AdminController::class, 'search'])->name('admin.search');
@@ -237,5 +252,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/delete', [AdminController::class, 'delete'])->name('admin.delete');
 });
 
-## ER図
+#### ER図
 ![ER Diagram](./er_contact_system.png)

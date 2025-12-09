@@ -1,0 +1,137 @@
+/* 共通：背景・フォント */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", "游ゴシック体", YuGothic, "メイリオ", Meiryo, sans-serif;
+    background-color: #f3ece5;
+    color: #6c5b4c;
+}
+
+.auth-page {
+    min-height: 100vh;
+    background-color: #f3ece5;
+}
+
+/* ヘッダー共通 */
+.auth-header {
+    background-color: #fdfaf7;
+    border-bottom: 1px solid #eee3d6;
+    padding: 18px 32px 12px;
+}
+
+.auth-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-brand {
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    color: #b1977e;
+}
+
+.auth-header-link {
+    font-size: 12px;
+    text-decoration: none;
+    color: #c6b09b;
+    border: 1px solid #e9ddcf;
+    padding: 5px 18px;
+    border-radius: 2px;
+    background-color: #fdf6ef;
+}
+
+.auth-header-link:hover {
+    background-color: #f1e5d7;
+}
+
+.auth-title {
+    text-align: center;
+    margin: 12px 0 0;
+    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    color: #a08873;
+}
+
+/* メイン共通 */
+.auth-main {
+    max-width: 960px;
+    margin: 60px auto 80px;
+    padding: 0 16px;
+}
+
+.auth-card {
+    margin: 0 auto;
+    max-width: 520px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #eee3d6;
+    padding: 40px 70px 48px;
+}
+
+.auth-field {
+    margin-bottom: 26px;
+}
+
+.auth-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.auth-input {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: #f6f5f4;
+    padding: 12px 14px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.auth-input::placeholder {
+    color: #d0c7c0;
+}
+
+/* ボタン */
+.auth-submit-wrap {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.auth-submit {
+    border: none;
+    padding: 11px 60px;
+    font-size: 14px;
+    background-color: #8b715f;
+    color: #ffffff;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.auth-submit:hover {
+    background-color: #7b6252;
+}
+
+/* スマホ調整 */
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 30px 20px 36px;
+    }
+}
+
+/* =========================
+   エラーメッセージ
+========================= */
+.auth-error {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #d9534f;
+    /* 明瞭な赤 */
+    background-color: #f9e6e6;
+    border: 1px solid #e4b4b4;
+    padding: 8px 10px;
+    border-radius: 3px;
+    line-height: 1.4;
+}

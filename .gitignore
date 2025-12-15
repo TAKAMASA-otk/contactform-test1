@@ -21,3 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+# Docker MySQL data (do not commit)
+docker/mysql/data/
+
